@@ -96,7 +96,7 @@
 
 			.publication-section img {
 				width: 100vw; /* Set the width to 100% of the container */
-			    height: 230px; /* Set a constant height for the image */
+			    height: 300px; /* Set a constant height for the image */
 			    object-fit: cover; /* Maintain aspect ratio and cover the container */
 			    border-top: 2px solid black;
 				border-bottom: 2px solid black;
@@ -120,6 +120,203 @@
 				background-color: black;
 				color: white;
 			}
+
+            /* Modern CV styling: scoped to the replacement content only */
+            .cv-text {
+                box-sizing: border-box;
+                width: min(1000px, calc(100% - 32px));
+                margin: 34px auto 50px;
+                text-align: left;
+                font-family: Arial;
+                color: #424242;
+                line-height: 1.58;
+            }
+
+            .cv-text *, .cv-text *::before, .cv-text *::after {
+                box-sizing: border-box;
+            }
+
+            .cv-text .cv-card {
+                overflow: hidden;
+                background: #ffffff;
+                border: 2.5px solid #000000;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(28, 55, 78, 0.10);
+            }
+
+            .cv-text .profile {
+                display: grid;
+                grid-template-columns: minmax(250px, 0.7fr) minmax(420px, 1.4fr);
+                gap: 28px;
+                padding: 25px 25px;
+                background: #F4F8Fc;
+                border-bottom: 2.5px solid #D9E3EC;
+            }
+
+            .cv-text .profile h2 {
+                margin: 0 0 5px;
+                color: #103F65;
+                font-size: 30px;
+                line-height: 1.15;
+            }
+
+            .cv-text .role {
+                margin: 0 0 4px;
+                color: #103F65;
+                font-size: 22.5px;
+                font-weight: bold;
+            }
+
+            .cv-text .institution {
+                margin: 0;
+                color: #4242426;
+                font-size: 18px;
+            }
+
+            .cv-text .contact-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px 18px;
+                align-content: start;
+                font-size: 18px;
+            }
+
+            .cv-text .contact-grid div {
+                padding-left: 10px;
+                border-left: 3px solid #D9E3EC;
+                overflow-wrap: anywhere;
+            }
+
+            .cv-text .contact-grid strong {
+                display: block;
+                color: #103F65;
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+
+            .cv-text a {
+                color: #155b8f;
+                text-decoration-thickness: 1px;
+                text-underline-offset: 2px;
+            }
+
+            .cv-text a:hover { color: #0B3554; }
+
+            .cv-text .content {
+                padding: 2px 34px 34px;
+            }
+
+            .cv-text .cv-section {
+                margin-top: 20px;
+            }
+
+            .cv-text .section-title {
+                margin: 0 0 14px;
+                padding: 8px 13px;
+                color: #ffffff;
+                background: linear-gradient(90deg, #103f65, #1c6b9f);
+				border: 2.5px solid #000000;
+                border-radius: 6px;
+                font-size: 18px;
+                line-height: 1.3;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+            .cv-text .summary {
+                margin: 0;
+                padding: 5px 5px;
+                font-size: 18px;
+            }
+
+            .cv-text .entries {
+                display: grid;
+                gap: 10px;
+            }
+
+            .cv-text .entry {
+                display: grid;
+                grid-template-columns: 125px minmax(0, 1fr);
+                gap: 16px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #103F65;
+            }
+
+            .cv-text .entry:last-child { border-bottom: none; }
+            .cv-text .entry p { margin: 0; font-size: 18px; }
+
+            .cv-text .date {
+                color: #103F65;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .cv-text .compact-list,
+            .cv-text .publication-list {
+                margin: 0;
+                padding-left: 24px;
+            }
+
+            .cv-text .compact-list li,
+            .cv-text .publication-list li {
+                margin-bottom: 10px;
+                padding-left: 4px;
+                font-size: 18px;
+            }
+
+            .cv-text .publication-list li::marker {
+                color: #103F65;
+                font-weight: bold;
+            }
+
+            .cv-text .two-column {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 28px;
+            }
+
+            .cv-text .two-column > div { min-width: 0; }
+
+            .cv-text .subheading {
+                margin: 17px 0 8px;
+                color: #103F65;
+                font-size: 18px;
+            }
+
+            @media (max-width: 760px) {
+                .cv-text {
+                    width: calc(100% - 20px);
+                    margin-top: 20px;
+                }
+
+                .cv-text .profile,
+                .cv-text .two-column {
+                    grid-template-columns: 1fr;
+                }
+
+                .cv-text .contact-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .cv-text .profile,
+                .cv-text .content {
+                    padding-left: 20px;
+                    padding-right: 20px;
+                }
+
+                .cv-text .entry {
+                    grid-template-columns: 1fr;
+                    gap: 3px;
+                }
+            }
+
+            @media print {
+                nav, .publication-section > img, footer { display: none; }
+                .cv-text { width: 100%; margin: 0; }
+                .cv-text .cv-card { border: none; box-shadow: none; }
+                .cv-text .section-title { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+            }
+
 		</style>
 	</head>
 	<body>
@@ -134,9 +331,129 @@
 		<main>
 			<section>
 				<div class="publication-section">
-					<img src="https://www.dropbox.com/scl/fi/iy432olhsoe61r94yk7a2/china-great-wall.jpg?rlkey=d9xmkntrrf28auyyhnx4lscdw&st=8nniupmv&raw=1" alt="banner image">
+					<img src="https://www.dropbox.com/scl/fi/p1glwy6gaocp1sgqrrx21/great-wall-china.jpg?rlkey=hpixhy9lbtf487xtw87j9ehsq&st=i1ubdgit&raw=1" alt="banner image">
 					<div class="cv-text">
-						<p> Text in progress </p>
+<article class="cv-card">
+      <section class="profile">
+        <div>
+          <h2>Thomas Bernard</h2>
+          <p class="role">Associate Professor</p>
+          <p class="institution">College of Geosciences, China University of Petroleum, Beijing</p>
+        </div>
+        <div class="contact-grid">
+          <div><strong>Location</strong>102249 Beijing, China</div>
+          <div><strong>Phone</strong>+49 1575 1634075</div>
+          <div><strong>Email</strong><a href="mailto:bernard.thomas0192@gmail.com">bernard.thomas0192@gmail.com</a></div>
+          <div><strong>Website</strong><a href="https://thomas-j-a-bernard.github.io/" target="_blank" rel="noopener">thomas-j-a-bernard.github.io</a></div>
+          <div><strong>Twitter / X</strong><a href="https://twitter.com/ThomasB59390799" target="_blank" rel="noopener">@ThomasB59390799</a></div>
+          <div><strong>Nationality</strong>French</div>
+          <div><strong>Birth date</strong>12 March 1992</div>
+        </div>
+      </section>
+
+      <div class="content">
+        <section class="cv-section">
+          <h2 class="section-title">Profile</h2>
+          <p class="summary">Early-career geomorphologist interested in interactions among surface processes, tectonics, and climate, and in their influence on the large-scale evolution of mountain belts and foreland-basin systems. My research combines topographic analysis, thermo- and geochronology, numerical landscape-evolution models, and inverse modelling.</p>
+        </section>
+
+        <section class="cv-section">
+          <h2 class="section-title">Academic Appointments</h2>
+          <div class="entries">
+            <div class="entry"><div class="date">Since 2024</div><p><strong>Associate Professor</strong>, China University of Petroleum, Beijing, China.</p></div>
+            <div class="entry"><div class="date">2022 - 2024</div><p><strong>Postdoctoral Researcher</strong>, University of Tübingen, Germany. “Data-Driven Landscape Evolution Modelling Across Germany,” supervised by Christoph Glotzbach and Todd Ehlers.</p></div>
+            <div class="entry"><div class="date">2021 - 2022</div><p><strong>Postdoctoral Researcher</strong>, Geosciences Rennes, France. “Thermochronometric Modelling: Parallel Computing and 2-Dimensional Discontinuities Implementation in QTQt,” supervised by Kerry Gallagher.</p></div>
+            <div class="entry"><div class="date">2016 - 2021</div><p><strong>PhD</strong>, University of Edinburgh, United Kingdom. “Post-Orogenic Topography and Sediment Flux of Mountain–Foreland Systems: Miocene Erosion and Sediment Yield from the Pyrenees,” supervised by Hugh Sinclair and Mary Ford.</p></div>
+            <div class="entry"><div class="date">Jan - Jun 2015</div><p><strong>Research Intern</strong>, OSUR Rennes, France. “Landscape Evolution of the Northeast Greenland Margin Since the Mesozoic,” supervised by Kerry Gallagher and Philippe Steer.</p></div>
+            <div class="entry"><div class="date">May - Jun 2014</div><p><strong>Research Intern</strong>, OSUR Rennes, France. “Detailed Cartography of a Paleocanyon in the Junggar Basin,” supervised by Marc Jolivet and Laurie Barrier.</p></div>
+          </div>
+        </section>
+
+        <section class="cv-section">
+          <h2 class="section-title">Publications</h2>
+          <ol class="publication-list" reversed>
+            <li>Schaller, M., Peifer, D., Neely, A. B., <strong>Bernard, T.</strong>, Glotzbach, C., Beer, A. R., &amp; Ehlers, T. A. (2025). Spatiotemporal denudation rates of the Swabian Alb escarpment (southwestern Germany) dominated by anthropogenic impact, lithology, and base-level lowering. <em>Earth Surface Dynamics, 13</em>(4), 571–591.</li>
+            <li><strong>Bernard, T.</strong>, Glotzbach, C., Peifer, D., Neely, A., Schaller, M., Beer, A., ... &amp; Ehlers, T. A. (2024). Estimation of denudation parameters and river capture events from neural network inverse modeling of river profiles and thermo- and geochronology data. <em>Journal of Geophysical Research: Earth Surface, 129</em>(10), e2024JF007636.</li>
+            <li>Fox, M., Hoseason, T., <strong>Bernard, T.</strong>, Sinclair, H., &amp; Smith, A. G. G. (2023). Bedload–bedrock contrasts form enigmatic low-relief surfaces of the Pyrenees. <em>Geophysical Research Letters, 50</em>(6), e2022GL101995. <a href="https://doi.org/10.1029/2022GL101995">doi</a></li>
+            <li><strong>Bernard, T.</strong>, &amp; Sinclair, H. D. (2023). Accelerated sediment delivery to continental margins during post-orogenic rebound of mountain ranges. <em>Basin Research, 35</em>(2), 642–661. <a href="https://doi.org/10.1111/bre.12727">doi</a></li>
+            <li>Ford, M., Masini, E., Vergés, J., Pik, R., Ternois, S., Léger, J., Dielfolder, A., Frasca, G., Grool, A., Vinciguerra, C., <strong>Bernard, T.</strong>, ... &amp; Calassou, S. (2022). Evolution of a low-convergence collisional orogen: A review of Pyrenean orogenesis. <em>Bulletin de la Société Géologique de France, 193</em>(1). <a href="https://doi.org/10.1051/bsgf/2022018">doi</a></li>
+            <li><strong>Bernard, T.</strong>, Sinclair, H. D., Gailleton, B., &amp; Fox, M. (2021). Formation of longitudinal river valleys and the fixing of drainage divides in response to exhumation of crystalline basement. <em>Geophysical Research Letters, 48</em>(8). <a href="https://doi.org/10.1029/2020GL092210">doi</a></li>
+            <li><strong>Bernard, T.</strong>, Sinclair, H. D., Naylor, M., Christophoul, F., &amp; Ford, M. (2020). Post-orogenic sediment drape in the Northern Pyrenees explained using a box model. <em>Basin Research, 33</em>(1), 118–137. <a href="https://doi.org/10.1111/bre.12457">doi</a></li>
+            <li><strong>Bernard, T.</strong>, Sinclair, H. D., Gailleton, B., Mudd, S. M., &amp; Ford, M. (2019). Lithological control on the post-orogenic topography and erosion history of the Pyrenees. <em>Earth and Planetary Science Letters, 518</em>, 53–66. <a href="https://doi.org/10.1016/j.epsl.2019.04.034">doi</a></li>
+            <li><strong>Bernard, T.</strong>, Steer, P., Gallagher, K., Szulc, A., Whitham, A., &amp; Johnson, C. (2016). Evidence for Eocene–Oligocene glaciation in the landscape of the East Greenland margin. <em>Geology, 44</em>(11), 895–898. <a href="https://doi.org/10.1130/G38248.1">doi</a></li>
+          </ol>
+        </section>
+
+        <section class="cv-section">
+          <h2 class="section-title">Conference Contributions</h2>
+          <ul class="compact-list">
+            <li>Bernard, T., Glotzbach, C., Neely, A., Ehlers, T., &amp; Peifer, D. (2023). Estimation of erosion rates and river captures from inverse modelling of river profiles and thermo-geochronology data. AGU 2023.</li>
+            <li>Bernard, T., Glotzbach, C., Neely, A., &amp; Ehlers, T. (2023). Estimation of erosion-rate parameters from inverse modelling of river profiles and thermochronological data. Thermo 2023.</li>
+            <li>Bernard, T., Glotzbach, C., Peifer, D., Neely, A., &amp; Ehlers, T. (2023). Estimation of erosion-rate parameters from neural-network inverse modeling of river-profile and thermo-geochronology data. EGU 2023.</li>
+            <li>Bernard, T., Sinclair, H., Naylor, M., Weir, E., Christophoul, F., &amp; Ford, M. (2020). Post-orogenic sediment drape and flux of mountain-range–foreland-basin systems: An example from the Northern Pyrenees. EGU 2020.</li>
+            <li>Bernard, T., Sinclair, H., Naylor, M., Christophoul, F., &amp; Ford, M. (2019). Syn- to post-orogenic topography and sedimentary flux of mountain systems: Application to the Central Pyrenees. EGU 2019.</li>
+            <li>Bernard, T., &amp; Sinclair, H. (2018). The effect of lithology in shaping the post-orogenic relief of the Central Pyrenees. EGU 2018.</li>
+            <li>Bernard, T., Sinclair, H., Ford, M., &amp; Naylor, M. (2017). Post-orogenic evolution of mountain ranges and associated foreland basins: Initial investigation of the Central Pyrenees. EGU 2017.</li>
+            <li>Bernard, T., Steer, P., Gallagher, K., Szulc, A., &amp; Whittam, A. (2016). Glaciation and erosion of East Greenland at the Eocene–Oligocene transition: Insights from low-temperature thermochronology. EGU 2016.</li>
+          </ul>
+        </section>
+
+        <section class="cv-section">
+          <h2 class="section-title">Research Funding</h2>
+          <div class="entries">
+            <div class="entry"><div class="date">2026.7 - 2028.6</div><p><strong>Beijing Natural Science Foundation – International Scientists Project</strong>, <span style="color: #C21D00;"><b>CNY 200,000</b></span>. “Surface Processes and Erosion Hazard Risks in the Yanshan–Taihang Mountains: Integrating Landscape Evolution Modeling and Bayesian Inversion.” PI: T. Bernard.</p></div>
+            <div class="entry"><div class="date">2025 - 2027</div><p><strong>National Natural Science Foundation of China</strong>, <span style="color: #C21D00;"><b>CNY 400,000</b></span>. “Quantifying Tectonics–Climate–Surface Process Interactions in the Qinling–Dabie Orogen Using Numerical Modeling.” PI: T. Bernard.</p></div>
+          </div>
+        </section>
+
+        <section class="cv-section two-column">
+          <div>
+            <h2 class="section-title">Teaching</h2>
+            <ul class="compact-list">
+              <li><strong>Introduction to Geology</strong> — Teacher; introduction to geological processes, 2025.</li>
+              <li><strong>Initiation to Python</strong> — Demonstrator; programming and applications to geological problems, 2021.</li>
+              <li><strong>Inchnadamph Field Course</strong> — Demonstrator; geology and geomorphology of the Assynt Window, 2017–2018.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="section-title">Skills</h2>
+            <ul class="compact-list">
+              <li>Thermochronology: sampling, mineral separation, mineral picking, fission-track and helium analyses.</li>
+              <li>Thermochronological modelling: QTQt (expert), HeFTy.</li>
+              <li>Landscape-evolution modelling: Fastscape.</li>
+              <li>Programming: Python, C, C++, MATLAB.</li>
+              <li>Topographic analysis: LSDTopoTools.</li>
+              <li>Scientific software: LaTeX, Microsoft Office, Adobe Illustrator.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="cv-section">
+          <h2 class="section-title">Field Experience</h2>
+          <h3 class="subheading">Research</h3>
+          <ul class="compact-list">
+            <li>Germany and the Swabian Alb: bedrock and river-sediment sampling for dating.</li>
+            <li>Northern and Southern Pyrenees: bedrock sampling, rock-strength measurements, and clast granulometry and lithology.</li>
+          </ul>
+          <h3 class="subheading">Education</h3>
+          <ul class="compact-list">
+            <li>Scottish Highlands: geological mapping and glacial/fluvial geomorphology of the Assynt Window.</li>
+            <li>Spanish Pyrenees: sedimentology and stratigraphy of the South Pyrenean Thrust Belt.</li>
+            <li>Armorican Massif: geological context and interpretation of the Variscan orogeny.</li>
+            <li>Wessex Basin: mineralogy, sedimentology, and tectonics.</li>
+            <li>Alps: active tectonics and geological mapping of the Barles half-window.</li>
+          </ul>
+        </section>
+
+        <section class="cv-section">
+          <h2 class="section-title">Additional Information</h2>
+          <ul class="compact-list">
+            <li>Hobbies: climbing, hiking, and tennis.</li>
+            <li>Driver’s licence.</li>
+          </ul>
+        </section>
+      </div>
+    </article>
 					</div>
 				</div>
 			</section>
